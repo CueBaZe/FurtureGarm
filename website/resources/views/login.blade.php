@@ -17,6 +17,17 @@
                     <h3 class="title">FutureGram</h3>
                     <p class="motto">Because some messages are meant for later.</p>
                 </div>
+
+                <div class="infobox">
+                    @if(session()->has('success'))
+                        <span><i class='bx bx-check-circle successcircle'></i> {{session()->get("success")}}</span>
+                    @endif
+
+                    @if(session()->has('error'))
+                        <span><i class='bx bx-error-circle errorCircle'></i> {{session()->get("error")}}</span>
+                    @endif
+                </div>
+
                 <form action="{{ route('loginpost') }}" method="POST">
                     @csrf
                     <div class="inputs">

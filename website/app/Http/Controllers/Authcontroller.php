@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Authcontroller extends Controller
 {
@@ -12,15 +15,19 @@ class Authcontroller extends Controller
             "password" => "required",
         ]);
 
-        $credentials = $request->only("email", "password", "rem");
+        $credentials = $request->only("email", "password");
 
-        dd($credentials);
+        if(Auth::attempt($credentials)) {
+            return redirect()->intended('/');
+        }
+
+        return redirect('login')->with('error', 'Invalid credentials. Please try again');
     }
 
     public function register(Request $request) {
         $request->validate([
             "name" => "required",
-            "email" => "required||email",
+            "email" => "required||email|unique:users",
             "password" => "required||min:8",
             "terms" => "accepted",
         ], [
@@ -29,6 +36,12 @@ class Authcontroller extends Controller
 
         $credentials = $request->only("name", "email", "password", "term");
 
-        dd($credentials);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect('/login')->with('success', 'User was successfully created');
     }
 }
