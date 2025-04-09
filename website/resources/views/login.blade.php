@@ -17,16 +17,25 @@
                     <h3 class="title">FutureGram</h3>
                     <p class="motto">Because some messages are meant for later.</p>
                 </div>
-                <form action="">
+                <form action="{{ route('loginpost') }}" method="POST">
+                    @csrf
                     <div class="inputs">
                         <div class="emailbox">
                             <i class='bx bx-user' ></i>
                             <input type="text" class="email col-8" name="email" placeholder="Email">
+                            <br>
+                            @if($errors->has('email')) 
+                                <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('email')}}</span>
+                            @endif
                         </div>
 
                         <div class="passwordbox">
                             <i class='bx bxs-hide' ></i>
-                            <input type="text" class="password col-8" name="password" placeholder="Password">
+                            <input type="password" class="password col-8" name="password" placeholder="Password">
+                            <br>
+                            @if($errors->has('password')) 
+                                <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('password')}}</span>
+                            @endif
                         </div>
                     </div>
 

@@ -50,6 +50,10 @@ body {
     margin: 20px;
 }
 
+.errorCircle {
+    color: red;
+}
+
 .registerbtn {
     background-color: #ff4d00;
     color: #f9f9f9;

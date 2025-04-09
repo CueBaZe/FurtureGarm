@@ -17,22 +17,35 @@
                     <h3 class="title">FutureGram</h3>
                     <p class="motto">Because some messages are meant for later.</p>
                 </div>
-                <form action="">
+                <form action="{{ route('registerpost') }}" method="POST">
+                    @csrf
                     <div class="inputs">
 
                         <div class="namebox">
                             <i class='bx bx-purchase-tag-alt'></i>
                             <input type="text" name="name" class="name col-8" placeholder="Nametag">
+                            <br>
+                            @if($errors->has('name'))
+                                <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('name')}}</span>
+                            @endif
                         </div>
 
                         <div class="emailbox">
                             <i class='bx bx-user' ></i>
                             <input type="text" class="email col-8" name="email" placeholder="Email">
+                            <br>
+                            @if($errors->has('email'))
+                                <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('email')}}</span>
+                            @endif
                         </div>
 
                         <div class="passwordbox">
                             <i class='bx bxs-hide' ></i>
-                            <input type="text" class="password col-8" name="password" placeholder="Password">
+                            <input type="password" class="password col-8" name="password" placeholder="Password">
+                            <br>
+                            @if($errors->has('password'))
+                                <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('password')}}</span>
+                            @endif
                         </div>
                     </div>
 
@@ -41,6 +54,10 @@
                     <div class="termsbox">
                         <input type="checkbox" name="terms" class="term">
                         <label for="terms">Accept terms and conditions</label>
+                        <br>
+                        @if($errors->has('terms'))
+                            <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('terms')}}</span>
+                        @endif
                     </div>
 
                     <div class="link-to-signup">
