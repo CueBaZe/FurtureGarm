@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="link-to-signup">
-                        <p>Don't have an account? <br> <span class="createacc">Create account</span></p> 
+                        <p>Don't have an account? <br> <a href="{{route('register')}}" class="createacc">Create account</a></p> 
                     </div>
                 </form>
             </div>
