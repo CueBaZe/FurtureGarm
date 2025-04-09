@@ -23,6 +23,8 @@ class Authcontroller extends Controller
             "email" => "required||email",
             "password" => "required||min:8",
             "terms" => "accepted",
+        ], [
+            "terms.accepted" => "You must accept the terms and conditions to proceed."
         ]);
 
         $credentials = $request->only("name", "email", "password", "term");
