@@ -1,0 +1,38 @@
+.createText {
+    background-color: #515151;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* ensures full viewport height */
+}
+
+.box {
+    color: #f9f9f9;
+}
+
+.error {
+    font-size: 60px;
+    margin: 20px;
+    color: red;
+}
+
+h3 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 20px;
+}
+
+.createbtn {
+    color: #f9f9f9;
+    font-size: 20px;
+    background-color: #ff4d00;
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.createbtn:hover{
+    background-color: #ff4000;
+    transform: scale(1.1);
+}
