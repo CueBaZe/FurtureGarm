@@ -29,10 +29,12 @@ main {
 }
 
 .footer {
+    position: fixed;
     background-color: #131313;
     padding: 5px;
     text-align: center;
     font-size: 20px;
+    bottom: 0;
 }
 
 .link {
