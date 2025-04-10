@@ -18,18 +18,20 @@
     </main>
 
     <div class="footer container-fluid">
-    <div class="row text-center">
-        <div class="col-4">
-            <a href="#" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
-        </div>
-        <div class="col-4">
-            <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
-        </div>
-        <div class="col-4">
-            <a href="#" class="link" data-bs-toggle="tooltip" title="Create timecapsule"><i class='bx bxs-hourglass'></i></a>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-4">
+                    <a href="#" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="link" data-bs-toggle="tooltip" title="Create timecapsule"><i class='bx bxs-hourglass'></i></a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
 </html>
