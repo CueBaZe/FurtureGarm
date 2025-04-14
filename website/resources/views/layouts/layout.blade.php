@@ -53,7 +53,7 @@
                                 <textarea name="text" class="col-8 mt-4" rows="5" maxlength="300" id="timecapsuleText" 
                                     placeholder="Insert your text here.. (Maximum 300 characters)">
                                 </textarea>
-                                <input type="date" class="col-6 mt-4" name="time">
+                                <input type="date" class="col-6 mt-4" id="datePicker" name="time" onkeydown="return false">
                             </div>
                         </div>
                     </form>
@@ -71,4 +71,5 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/datePicker.js') }}"></script>
 </html>
