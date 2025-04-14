@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TimecapsuleController;
 
 Route::get('/', function () {
     return view('index');
@@ -18,3 +19,5 @@ Route::get('/register', function () {
 Route::post('/login', [Authcontroller::class, 'login'])->name('loginpost');
 
 Route::post('/register', [AuthController::class, 'register'])->name('registerpost');
+
+Route::post('/timecapsule', [TimecapsuleController::class, 'createTimecapsule'])->name('timecapsuleCreate');

@@ -46,26 +46,48 @@
                 <div class="modal-body text-center">
                     <p class="lead">Because some messages are meant for later. ⌛</p>
                     <!-- You can replace this with your form later -->
-                    <form action="">
+                    <form action="{{ route('timecapsuleCreate') }}" method="POST">
+                        @csrf
                         <div class="container">
                             <div class="row justify-content-center">
-                                <input type="text" class="col-6 mt-4" name="title" placeholder="Title">
-                                <textarea name="text" class="col-8 mt-4" rows="5" maxlength="300" id="timecapsuleText" 
-                                    placeholder="Insert your text here.. (Maximum 300 characters)">
-                                </textarea>
-                                <input type="date" class="col-6 mt-4" id="datePicker" name="time" onkeydown="return false">
+                                <input type="text" class="col-6 mt-4" name="title" placeholder="Title" value="{{ old('title') }}">
+                                @error('title')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                
+                                <textarea name="text" class="col-8 mt-4" rows="5" maxlength="300" name="text" id="timecapsuleText" placeholder="Insert your text here.. (Maximum 300 characters)">{{ old('text') }}</textarea>
+                                @error('text')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                
+                                <input type="date" class="col-6 mt-4" id="datePicker" name="time" value="{{ old('time') }}" onkeydown="return false">
+                                @error('time')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                                
                             </div>
                         </div>
-                    </form>
                 </div>
     
                 <div class="modal-footer justify-content-between px-4">
                     <button type="button" class="cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="create">Create TimeCapsule</button>
+                    <button type="submit" class="create">Create TimeCapsule</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+
+
+@if ($errors->any())
+<script>
+    window.showCreateModal = true;
+</script>
+@else
+<script>
+    window.showCreateModal = false;
+</script>
+@endif
 
 </body>
 
