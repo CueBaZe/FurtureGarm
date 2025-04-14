@@ -27,11 +27,48 @@
                     <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="link" data-bs-toggle="tooltip" title="Create timecapsule"><i class='bx bxs-hourglass'></i></a>
+                    <a href="#" class="link" data-toggle="modal" data-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="createTimeCapsule" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header rounded-top">
+                    <h5 class="modal-title mx-auto">
+                        <i class="bx bx-time"></i> Create TimeCapsule
+                    </h5>
+                </div>
+    
+                <div class="modal-body text-center">
+                    <p class="lead">Because some messages are meant for later. ⌛</p>
+                    <!-- You can replace this with your form later -->
+                    <form action="">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <input type="text" class="col-6 mt-4" name="title" placeholder="Title">
+                                <textarea name="text" class="col-8 mt-4" rows="5" maxlength="300" id="timecapsuleText" 
+                                    placeholder="Insert your text here.. (Maximum 300 characters)">
+                                </textarea>
+                                <input type="date" class="col-6 mt-4" name="time">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <div class="modal-footer justify-content-between px-4">
+                    <button type="button" class="cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="create">Create TimeCapsule</button>
                 </div>
             </div>
         </div>
     </div>
 
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 </html>

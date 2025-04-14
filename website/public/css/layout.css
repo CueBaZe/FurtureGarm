@@ -45,3 +45,48 @@ main {
 .link:hover {
     color: #ff4d00;
 }
+
+#createTimeCapsule {
+    backdrop-filter: blur(8px);
+}
+
+.modal-header {
+    color: #f9f9f9;
+    background-color: #131313;
+}
+
+.bx-time {
+    color: #ff4d00;
+}
+
+textarea {
+    resize: none;
+}
+
+.modal-footer {
+    background-color: #131313;
+    color: #f9f9f9;
+}
+
+.cancel {
+    background-color: rgb(146, 146, 146);
+    color: #f9f9f9;
+    border: 1px #515151 solid;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+.cancel:hover {
+    transform: scale(1.1);
+}
+
+.create {
+    background-color: #ff4d00;
+    color: #f9f9f9;
+    border: 1px #515151 solid;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+.create:hover {
+    transform: scale(1.1);
+    background-color: #ff4000;
+}
