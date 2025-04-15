@@ -34,13 +34,14 @@
     </div>
 
 
-    <div id="createTimeCapsule" class="modal fade" tabindex="-1" role="dialog">
+    <div id="createTimeCapsule" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header rounded-top">
                     <h5 class="modal-title mx-auto">
-                        <i class="bx bx-time"></i> Create TimeCapsule
+                        <i class="bx bx-time logo"></i> Create TimeCapsule
                     </h5>
+                    <i class='bx bx-x-circle close' data-dismiss="modal"></i>
                 </div>
     
                 <div class="modal-body text-center">
