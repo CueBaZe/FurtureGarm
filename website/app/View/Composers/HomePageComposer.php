@@ -15,7 +15,12 @@ class HomePageComposer {
     public function compose(View $view) {
         $user = auth()->user();
         $hasTimeCapsule = $user ? $this->timeCapsuleService->userHasTimeCapsule($user) : false;
+        $timecapsules = $user ? $this->timeCapsuleService->getTimecapsule($user) : [];
 
-        $view->with('hasTimeCapsule', $hasTimeCapsule);
+        $view->with([
+            'hasTimeCapsule' => $hasTimeCapsule,
+            'timeCapsules' => $timecapsules,
+        ]);
+        
     }
 }

@@ -8,7 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class TimeCapsuleService {
     public function userHasTimeCapsule(User $user): bool {
-        $timecapsules = DB::select('select * from timecapsules where user_id = ?', [$user->id]);
-        return !empty($timecapsules);
+        return DB::table('timecapsules')->where('user_id', $user->id)->exists();
+    }
+    
+    public function getTimeCapsule(User $user) {
+        return DB::table('timecapsules')
+        ->where('user_id', $user->id)
+        ->get(['id', 'name', 'text', 'time'])
+        ->toArray();
     }
 }

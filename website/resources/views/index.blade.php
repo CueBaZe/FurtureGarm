@@ -5,10 +5,13 @@
 @section('page-content') 
 <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     @if ($hasTimeCapsule)
-        <div class="container createText">
-            <div class="row justify-content-center">
-                You have a timeCapsule :D
-                <!--Make timeCapsules show here-->
+        <div class="container haveCapsule">
+            <div class="row">
+                @foreach ($timeCapsules as $timecapsule)
+                    <div class="capsuleCard col-12 col-md-4 col-lg-3 text-center">
+                        <h3>{{ $timecapsule->name }}</h3>
+                    </div>
+                @endforeach
             </div>
         </div>
     @else
