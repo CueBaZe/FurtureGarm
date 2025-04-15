@@ -50,7 +50,7 @@
                         @csrf
                         <div class="container">
                             <div class="row justify-content-center">
-                                <input type="text" class="col-6 mt-4" name="title" placeholder="Title" value="{{ old('title') }}">
+                                <input type="text" class="col-6 mt-4" name="title" maxlength="15" placeholder="Title" value="{{ old('title') }}">
                                 @error('title')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror

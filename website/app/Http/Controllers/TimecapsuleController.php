@@ -10,7 +10,7 @@ class TimecapsuleController extends Controller
 {
     public function createTimecapsule(Request $request) {
         $request->validate([
-            "title" => "required",
+            "title" => "required|max:15",
             "text" => "required|max:300",
             "time" => "required|date|after:today",
         ]);
