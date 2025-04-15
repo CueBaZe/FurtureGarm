@@ -16,10 +16,12 @@ class HomePageComposer {
         $user = auth()->user();
         $hasTimeCapsule = $user ? $this->timeCapsuleService->userHasTimeCapsule($user) : false;
         $timecapsules = $user ? $this->timeCapsuleService->getTimecapsule($user) : [];
+        $currentTime = $this->timeCapsuleService->getCurrentTime();
 
         $view->with([
             'hasTimeCapsule' => $hasTimeCapsule,
             'timeCapsules' => $timecapsules,
+            'currentTime' => $currentTime,
         ]);
         
     }

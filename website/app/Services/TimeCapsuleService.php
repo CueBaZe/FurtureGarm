@@ -17,4 +17,9 @@ class TimeCapsuleService {
         ->get(['id', 'name', 'text', 'time'])
         ->toArray();
     }
+
+    public function getCurrentTime() {
+        return date('Y-m-d');
+        
+    }
 }

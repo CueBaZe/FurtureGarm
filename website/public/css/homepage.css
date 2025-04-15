@@ -36,3 +36,45 @@ p {
     background-color: #ff4000;
     transform: scale(1.1);
 }
+
+.headtitle {
+    color: #f9f9f9;
+    margin-top: 20px;
+}
+.capsuleCard {
+    background-color: #f9f9f9;
+    color: #515151;
+    margin-top: 30px;
+    margin: 30px 20px;
+    border: 1px #131313 solid;
+    border-radius: 5px;
+}
+
+.capsuleCard h3 {
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.capsuleCard .openbtn {
+    border: 1px #131313 solid;
+    color: #f9f9f9;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.3s ease;
+}
+
+.capsuleCard #closed {
+    background-color: #515151;
+    cursor: not-allowed;
+}
+
+.capsuleCard #opened {
+    background-color: #ff4d00;
+}
+.capsuleCard #opened:hover {
+    transform: scale(1.1);
+}
+
