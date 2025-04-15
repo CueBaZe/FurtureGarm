@@ -55,6 +55,16 @@ main {
     background-color: #131313;
 }
 
+.close {
+    color: red;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.close:hover {
+    transform: scale(1.15);
+}
+
 .logo {
     color: #ff4d00;
 }
