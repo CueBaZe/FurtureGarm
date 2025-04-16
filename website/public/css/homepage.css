@@ -62,6 +62,7 @@ p {
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
+    padding: 2px;
     margin-bottom: 10px;
     transition: 0.3s ease;
 }
@@ -75,6 +76,18 @@ p {
     background-color: #ff4d00;
 }
 .capsuleCard #opened:hover {
+    background-color: #ff4000;
     transform: scale(1.1);
 }
+
+#delete {
+    color: red;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+#delete:hover {
+    transform: scale(1.255);
+    cursor: pointer;
+}
+
 

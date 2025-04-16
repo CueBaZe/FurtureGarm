@@ -10,6 +10,9 @@
                 <h3 class="headtitle">Your <i class='bx bx-time logo'></i> Capsules:</h3>
                 @foreach ($timeCapsules as $timecapsule)
                     <div class="capsuleCard text-center col-10 col-md-4 col-lg-3">
+                        <div class="text-end">
+                            <i class='bx bx-trash' id="delete"></i>
+                        </div>
                         <h3>{{ $timecapsule->name }}</h3>
                         @if($timecapsule->time <= $currentTime)
                             <p>Opened on {{ $timecapsule->time }}</p>
@@ -17,11 +20,11 @@
                             <p>Opens at {{ $timecapsule->time }}</p>
                         @endif
                         <div class="container mb-3">
-                            <div class="row justify-content-center">'
+                            <div class="row justify-content-center">
                                 @if($timecapsule->time <= $currentTime)
-                                <a href="#" id="opened" class="openbtn col-4" name="open" data-id="{{ $timecapsule->id }}">Open</a>
+                                <a href="#" id="opened" class="openbtn col-7" name="open" data-id="{{ $timecapsule->id }}">Open</a>
                                 @else
-                                <a href="#" id="closed" class="openbtn col-4" name="open" data-id="{{ $timecapsule->id }}">Open</a>
+                                <a href="#" id="closed" class="openbtn col-7" name="open">Open</a>
                                 @endif
                             </div>
                         </div>
