@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Timecapsule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TimecapsuleController extends Controller
 {
@@ -22,10 +23,16 @@ class TimecapsuleController extends Controller
                 "text" => $request->text,
                 "time" => $request->time,
             ]);
-            return redirect()->back()->with('success', "Time capsule created!");
+            return redirect()->back()->with('success', "Timecapsule created!");
         } else {
             return redirect()->route('login');
         }
 
+    }
+
+    public function deleteTimecapsule(Request $request) {
+        $id = $request->id;
+        DB::table('timecapsules')->where('id', $id)->delete();
+        return redirect()->route('home');
     }
 }

@@ -11,7 +11,11 @@
                 @foreach ($timeCapsules as $timecapsule)
                     <div class="capsuleCard text-center col-10 col-md-4 col-lg-3">
                         <div class="text-end">
-                            <i class='bx bx-trash' id="delete"></i>
+                            <form action="{{ route('timecapsuleDelete') }}" method="POST">
+                                @csrf
+                                <input type="text" name="id" value="{{ $timecapsule->id }}" hidden>
+                                <button class="btn" type="submit"><i class='bx bx-trash' id="delete"></i></button>
+                            </form>
                         </div>
                         <h3>{{ $timecapsule->name }}</h3>
                         @if($timecapsule->time <= $currentTime)
@@ -24,7 +28,7 @@
                                 @if($timecapsule->time <= $currentTime)
                                 <a href="#" id="opened" class="openbtn col-7" name="open" data-id="{{ $timecapsule->id }}">Open</a>
                                 @else
-                                <a href="#" id="closed" class="openbtn col-7" name="open">Open</a>
+                                <a href="#" id="closed" class="openbtn col-7" name="open" data-id="{{ $timecapsule->id }}">Open</a>
                                 @endif
                             </div>
                         </div>

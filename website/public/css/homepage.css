@@ -83,6 +83,7 @@ p {
 #delete {
     color: red;
     font-size: 15px;
+    border: none;
     transition: 0.3s ease;
 }
 #delete:hover {

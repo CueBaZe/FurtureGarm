@@ -21,3 +21,5 @@ Route::post('/login', [Authcontroller::class, 'login'])->name('loginpost');
 Route::post('/register', [AuthController::class, 'register'])->name('registerpost');
 
 Route::post('/timecapsule', [TimecapsuleController::class, 'createTimecapsule'])->middleware('auth')->name('timecapsuleCreate');
+
+Route::post('/timecapsuledel', [TimecapsuleController::class, 'deleteTimecapsule'])->middleware('auth')->name('timecapsuleDelete');
