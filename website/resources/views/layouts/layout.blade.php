@@ -27,21 +27,21 @@
                     <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="link" data-toggle="modal" data-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
+                    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div id="createTimeCapsule" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
+    <div id="createTimeCapsule" class="modal fade" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header rounded-top">
                     <h5 class="modal-title mx-auto">
                         <i class="bx bx-time logo"></i> Create TimeCapsule
                     </h5>
-                    <i class='bx bx-x-circle close' data-dismiss="modal"></i>
+                    <i class='bx bx-x-circle close' data-bs-dismiss="modal"></i>
                 </div>
     
                 <div class="modal-body text-center">
@@ -93,6 +93,7 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/openModal.js') }}"></script>
 <script src="{{ asset('js/datePicker.js') }}"></script>
 </html>

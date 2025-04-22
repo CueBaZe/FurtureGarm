@@ -14,7 +14,7 @@ class TimeCapsuleService {
     public function getTimeCapsule(User $user) {
         return DB::table('timecapsules')
         ->where('user_id', $user->id)
-        ->get(['id', 'name', 'text', 'time'])
+        ->get(['id', 'name', 'text', 'time', 'created_at'])
         ->toArray();
     }
 

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Timecapsule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 
 class TimecapsuleController extends Controller
 {
@@ -32,7 +34,16 @@ class TimecapsuleController extends Controller
 
     public function deleteTimecapsule(Request $request) {
         $id = $request->id;
-        DB::table('timecapsules')->where('id', $id)->delete();
-        return redirect()->route('home');
+        $user_id = auth::id();
+        
+        $deleted = Timecapsule::where('id', $id)
+            ->where('user_id', $user_id)
+            ->delete();
+
+        if ($deleted) {
+            return redirect()->route('home')->with('success', 'Timecapsule was deleted successfully!');
+        } else {
+            return redirect()->route('home')->with('error', 'Timecapsule not found or unauthorized.');
+        }
     }
 }
