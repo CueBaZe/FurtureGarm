@@ -9,7 +9,7 @@
             <div class="row">
                 <h3 class="headtitle">Your <i class='bx bx-time logo'></i> Capsules:</h3>
                 @foreach ($timeCapsules as $timecapsule)
-                    <div class="capsuleCard text-center col-10 col-md-4 col-lg-3">
+                    <div class="capsuleCard text-center col-10 col-md-4 col-xl-3">
                         <div class="text-end">
                             <form action="{{ route('timecapsuleDelete') }}" method="POST">
                                 @csrf

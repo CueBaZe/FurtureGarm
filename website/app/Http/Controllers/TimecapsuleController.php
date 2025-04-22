@@ -24,6 +24,7 @@ class TimecapsuleController extends Controller
                 'name' => $request->title,
                 "text" => $request->text,
                 "time" => $request->time,
+                "madeBy" => Auth::name()
             ]);
             return redirect()->back()->with('success', "Timecapsule created!");
         } else {
