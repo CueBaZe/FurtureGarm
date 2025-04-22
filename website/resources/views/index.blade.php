@@ -67,6 +67,7 @@
                             <div class="row justify-content-center">
                                 <textarea name="text" id="capsuleText" rows="5" readonly></textarea>
                                 <p class="mt-4">Was made: <span id="timeMade"></span></p>
+                                <p>Created by: <span id="madeBy"></span></p>
                             </div>
                         </div>
                 </div>
@@ -76,15 +77,6 @@
             </div>
         </div>
     </div>
-
-    
-    @php
-    $capsuleData = [
-        'name' => $timecapsule->name,
-        'text' => $timecapsule->text,
-        'created_at' => $timecapsule->created_at,
-    ];
-    @endphp
 
 
 @endsection
