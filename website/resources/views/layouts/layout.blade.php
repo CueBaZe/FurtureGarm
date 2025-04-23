@@ -68,6 +68,9 @@
                                 @error('text')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
+
+                                <p class="mt-4">Leave blank if the capsule is for yourself. <i class='bx bx-down-arrow-alt'></i></p>
+                                <input type="text" class="col-8" name="toWho" placeholder="Send to person (email)">
                                 
                                 <input type="date" class="col-6 mt-4" id="datePicker" name="time" value="{{ old('time') }}" onkeydown="return false">
                                 @error('time')
@@ -79,7 +82,7 @@
                 </div>
     
                 <div class="modal-footer justify-content-between px-4">
-                    <button type="button" class="cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="cancel" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="create">Create TimeCapsule</button>
                 </div>
                 </form>

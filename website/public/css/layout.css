@@ -73,6 +73,14 @@ textarea {
     resize: none;
 }
 
+.modal-body p {
+    font-size: 15px;
+    font-weight: bold;
+}
+.modal-body i {
+    font-size: 20px;
+}
+
 .modal-footer {
     background-color: #131313;
     color: #f9f9f9;
