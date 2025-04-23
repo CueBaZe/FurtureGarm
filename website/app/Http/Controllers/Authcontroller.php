@@ -24,6 +24,11 @@ class Authcontroller extends Controller
         return redirect('login')->with('error', 'Invalid credentials. Please try again');
     }
 
+    public function logout() {
+        Auth::logout();
+        return redirect('login');
+    }
+
     public function register(Request $request) {
         $request->validate([
             "name" => "required",
