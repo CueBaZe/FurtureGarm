@@ -6,6 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-4">
-                    <a href="#" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
+                    <a href="#" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
                 </div>
                 <div class="col-4">
                     <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
@@ -33,7 +34,12 @@
         </div>
     </div>
 
+    <!--Side settings-->
+    <div id="settings" class="sidenav">
+        <a href="javascript::void(0);" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
+    </div>
 
+    <!--Create Timecapsule modal-->
     <div id="createTimeCapsule" class="modal fade" data-bs-backdrop="static" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content rounded-4 shadow">
@@ -96,4 +102,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('js/openModal.js') }}"></script>
 <script src="{{ asset('js/datePicker.js') }}"></script>
+<script src="{{ asset('js/openSettings.js') }}"></script>
 </html>

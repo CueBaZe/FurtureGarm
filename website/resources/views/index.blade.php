@@ -62,7 +62,6 @@
     
                 <div class="modal-body text-center">
                     <p class="lead">Because some messages are meant for later. ⌛</p>
-                    <!-- You can replace this with your form later -->
                         <div class="container">
                             <div class="row justify-content-center">
                                 <textarea name="text" id="capsuleText" rows="5" readonly></textarea>
