@@ -36,7 +36,9 @@
 
     <!--Side settings-->
     <div id="settings" class="sidenav">
-        <a href="javascript::void(0);" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
+        <a href="" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
+        <a href="#" class="link">Account <i class='bx bxs-user-account' ></i></a>
+        <a href="" class="logoutbtn" data-bs-toggle="tooltip" title="Logout"><i class='bx bx-log-out' ></i></a>
     </div>
 
     <!--Create Timecapsule modal-->

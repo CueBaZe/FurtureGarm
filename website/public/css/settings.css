@@ -8,17 +8,45 @@
     background-color: #151515;
     overflow-x: hidden;
     padding-top: 60px;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
-.sidenav a {
+.sidenav .link {
     color: #f9f9f9;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 35px;
+    margin: 20px;
+    transition: 0.3s ease;
+}
+.sidenav .link:hover {
+    transform: scale(1.125);
+    text-decoration: underline;
 }
 
 .sidenav .closebtn {
     position: absolute;
+    display: inline-block;
     top: 0;
     right: 25px;
     color: #f9f9f9;
     font-size: 35px;
+    transition: 0.5s ease;
+}
+.sidenav .closebtn:hover {
+    transform: scale(1.3);
+}
+
+.sidenav .logoutbtn {
+    position: absolute;
+    display: inline-block;
+    bottom: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    transition: 0.5s ease;
+}
+.sidenav .logoutbtn:hover {
+    transform: scale(1.3);
+    color: #ff4d00;
 }
