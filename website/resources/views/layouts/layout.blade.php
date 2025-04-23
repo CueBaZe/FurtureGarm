@@ -22,13 +22,13 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-4">
-                    <a href="#" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
+                    <a href="javascript:void(0)" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
                 </div>
                 <div class="col-4">
                     <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="link" data-bs-toggle="modal" data-bs-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
+                    <a href="#" class="link" data-bs-toggle="modal" data-bs-toggle="tooltip" title="Create Timecapsule" data-bs-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
                 </div>
             </div>
         </div>
@@ -36,8 +36,9 @@
 
     <!--Side settings-->
     <div id="settings" class="sidenav">
-        <a href="" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
-        <a href="#" class="link">Account <i class='bx bxs-user-account' ></i></a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
+        <a href="#" class="link" data-bs-toggle="tooltip" title="Change account infomation">Account</a>
+        <a href="#" class="link" data-bs-toggle="tooltip" title="Change timecapsule settings">Timecapsule</a>
         <a href="{{ route('logout') }}" class="logoutbtn" data-bs-toggle="tooltip" title="Logout"><i class='bx bx-log-out' ></i></a>
     </div>
 
@@ -54,7 +55,6 @@
     
                 <div class="modal-body text-center">
                     <p class="lead">Because some messages are meant for later. ⌛</p>
-                    <!-- You can replace this with your form later -->
                     <form action="{{ route('timecapsuleCreate') }}" method="POST">
                         @csrf
                         <div class="container">
