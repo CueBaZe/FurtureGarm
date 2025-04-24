@@ -17,7 +17,7 @@ class TimecapsuleController extends Controller
             "title" => "required|max:15",
             "text" => "required|max:300",
             "time" => "required|date|after:today",
-            "send" => "email",
+            "send" => "email||nullable",
         ]);
 
         $toWho = $request->send;
