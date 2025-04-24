@@ -59,6 +59,9 @@
                         @csrf
                         <div class="container">
                             <div class="row justify-content-center">
+                                @if(session()->has('success'))
+                                    <span><i class='bx bx-check-circle successcircle'></i> {{session()->get("success")}}</span>
+                                @endif
                                 <input type="text" class="col-6 mt-4" name="title" maxlength="15" placeholder="Title" value="{{ old('title') }}">
                                 @error('title')
                                     <div class="text-danger">{{ $message }}</div>
@@ -70,7 +73,10 @@
                                 @enderror
 
                                 <p class="mt-4">Leave blank if the capsule is for yourself. <i class='bx bx-down-arrow-alt'></i></p>
-                                <input type="text" class="col-8" name="toWho" placeholder="Send to person (email)">
+                                <input type="text" class="col-8" name="send" placeholder="Send to person (email)" {{ old('text') }}>
+                                @error('send')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
                                 
                                 <input type="date" class="col-6 mt-4" id="datePicker" name="time" value="{{ old('time') }}" onkeydown="return false">
                                 @error('time')
@@ -92,6 +98,16 @@
 
 
 @if ($errors->any())
+<script>
+    window.showCreateModal = true;
+</script>
+@else
+<script>
+    window.showCreateModal = false;
+</script>
+@endif
+
+@if (session()->has('success'))
 <script>
     window.showCreateModal = true;
 </script>

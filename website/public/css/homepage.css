@@ -68,6 +68,10 @@ p {
     transition: 0.3s ease;
 }
 
+.successcircle {
+    color: green;
+}
+
 .capsuleCard #closed {
     background-color: #515151;
     cursor: not-allowed;
