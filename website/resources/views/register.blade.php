@@ -40,8 +40,8 @@
                         </div>
 
                         <div class="passwordbox">
-                            <i class='bx bxs-hide' ></i>
-                            <input type="password" class="password col-8" name="password" placeholder="Password">
+                            <i class='bx bxs-hide' id="showpass"></i>
+                            <input type="password" class="password col-8" name="password" id="password" placeholder="Password">
                             <br>
                             @if($errors->has('password'))
                                 <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('password')}}</span>
@@ -68,4 +68,5 @@
         </div>
     </div>
 </body>
+<script src="{{ asset('js/showpass.js') }}"></script>
 </html>

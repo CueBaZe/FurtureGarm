@@ -42,6 +42,10 @@ body {
     margin-bottom: 30px;
 }
 
+#showpass:hover {
+    cursor: pointer;
+}
+
 .email, .password, .name {
     color: #ff4000;
     background-color: transparent;
