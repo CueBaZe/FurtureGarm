@@ -44,7 +44,7 @@ class TimecapsuleController extends Controller
                         "time" => $request->time,
                         "madeBy" => Auth::user()->name,
                     ]);
-                    return redirect()->back()->with('success', "Timecapsule was created!");
+                    return redirect()->back()->with('success', "Timecapsule was created and sent!");
                 } else {
                     return redirect()->back()->withErrors(['send' => "This email is not in our database."]);
                 }

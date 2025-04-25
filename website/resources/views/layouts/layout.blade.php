@@ -97,7 +97,7 @@
     </div>
 
 
-@if ($errors->any())
+@if ($errors->any() || session()->has('success'))
 <script>
     window.showCreateModal = true;
 </script>
@@ -107,15 +107,7 @@
 </script>
 @endif
 
-@if (session()->has('success'))
-<script>
-    window.showCreateModal = true;
-</script>
-@else
-<script>
-    window.showCreateModal = false;
-</script>
-@endif
+
 
 </body>
 
