@@ -7,5 +7,11 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Timecapsule extends Model implements HasMedia
 {
+    use InteractsWithMedia;
     protected $fillable = ['user_id', 'name', 'text', 'time', 'madeBy'];
+    
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('Media')->useDisk('public');
+    }
 }

@@ -17,38 +17,41 @@ class TimecapsuleController extends Controller
             "title" => "required|max:15",
             "text" => "required|max:300",
             "time" => "required|date|after:today",
-            "send" => "email||nullable",
+            "send" => "email|nullable",
+            "media" => "file|max:10240|nullable",
         ]);
 
         $toWho = $request->send;
 
         if (Auth::check()) {
+            $capsuleData = [
+                'name' => $request->title,
+                'text' => $request->text,
+                'time' => $request->time,
+                'madeBy' => Auth::user()->name,
+            ];
+
             if ($toWho == null) {
-                Timecapsule::create([
-                    'user_id' => Auth::id(),
-                    'name' => $request->title,
-                    "text" => $request->text,
-                    "time" => $request->time,
-                    "madeBy" => Auth::user()->name,
-                ]);
-                return redirect()->back()->with('success', "Timecapsule was created!");
+                $capsuleData['user_id'] = Auth::id();
             } else {
                 $user_exists = DB::table('users')->where('email', $toWho)
                     ->exists();
                 if($user_exists) {
-                    $user_id =  User::where('email', $toWho)->first();
-                    timecapsule::create([
-                        'user_id' => $user_id->id,
-                        'name' => $request->title,
-                        "text" => $request->text,
-                        "time" => $request->time,
-                        "madeBy" => Auth::user()->name,
-                    ]);
-                    return redirect()->back()->with('success', "Timecapsule was created and sent!");
-                } else {
-                    return redirect()->back()->withErrors(['send' => "This email is not in our database."]);
+                    $capsuleData['user_id'] =  User::where('email', $toWho)->first()->id;
                 }
             }
+            
+            $capsule = Timecapsule::create($capsuleData);
+
+            if($request->hasFile('media')) {
+                $capsule->addMedia($request->file('media'))->toMediaCollection('Media');
+            }
+
+            $message = $toWho == null
+                ? "Timecapsule was created!"
+                : "Timecapsule was created and sent!";
+
+            return redirect()->back()->with('success', $message);
         } else {
             return redirect()->route('login');
         }

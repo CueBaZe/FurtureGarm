@@ -55,7 +55,7 @@
     
                 <div class="modal-body text-center">
                     <p class="lead">Because some messages are meant for later. ⌛</p>
-                    <form action="{{ route('timecapsuleCreate') }}" method="POST">
+                    <form action="{{ route('timecapsuleCreate') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="container">
                             <div class="row justify-content-center text-center">
@@ -76,6 +76,9 @@
                                     <label for="mediaInput" class="custom-file-upload" id="file-button-text">Upload Media</label>
                                     <input type="file" name="media" id="mediaInput">
                                     <h5 id="file-label">No file selected.</h5>
+                                    @error('media')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <p class="mt-4">Leave blank if the capsule is for yourself. <i class='bx bx-down-arrow-alt'></i></p>
