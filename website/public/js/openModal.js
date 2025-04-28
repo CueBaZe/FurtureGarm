@@ -3,4 +3,7 @@ function openModal(capsule) {
     document.getElementById('capsuleText').value = capsule.text;
     document.getElementById('timeMade').textContent = capsule.created_at;
     document.getElementById('madeBy').textContent = capsule.madeBy;
+
+    console.log(capsule.madeBy);
+
 }

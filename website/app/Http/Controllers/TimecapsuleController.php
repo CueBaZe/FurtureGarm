@@ -12,13 +12,13 @@ use App\Models\User;
 
 class TimecapsuleController extends Controller
 {
+
     public function createTimecapsule(Request $request) {
         $request->validate([
             "title" => "required|max:15",
             "text" => "required|max:300",
             "time" => "required|date|after:today",
             "send" => "email|nullable",
-            "media" => "file|max:10240|nullable",
         ]);
 
         $toWho = $request->send;
@@ -43,10 +43,6 @@ class TimecapsuleController extends Controller
             
             $capsule = Timecapsule::create($capsuleData);
 
-            if($request->hasFile('media')) {
-                $capsule->addMedia($request->file('media'))->toMediaCollection('Media');
-            }
-
             $message = $toWho == null
                 ? "Timecapsule was created!"
                 : "Timecapsule was created and sent!";
@@ -63,12 +59,6 @@ class TimecapsuleController extends Controller
         $timecapsule = Timecapsule::find($id);
         $user_id = auth::id();
 
-        $mediaItems = $timecapsule ->getMedia('Media');
-        
-        foreach($mediaItems as $media) {
-            $media->delete();
-        }
-         
         $deleted = Timecapsule::where('id', $id)
             ->where('user_id', $user_id)
             ->delete();

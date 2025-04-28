@@ -2,16 +2,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Timecapsule extends Model implements HasMedia
+class Timecapsule extends Model
 {
-    use InteractsWithMedia;
     protected $fillable = ['user_id', 'name', 'text', 'time', 'madeBy'];
     
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('Media')->useDisk('public');
-    }
 }

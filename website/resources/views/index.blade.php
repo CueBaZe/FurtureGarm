@@ -65,6 +65,9 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <textarea name="text" id="capsuleText" rows="5" readonly></textarea>
+                                <div class="Image" id="modal-image">
+
+                                </div>  
                                 <p class="mt-4">Was made: <span id="timeMade"></span></p>
                                 <p>Created by: <span id="madeBy"></span></p>
                             </div>
@@ -76,7 +79,6 @@
             </div>
         </div>
     </div>
-
 
 @endsection
 

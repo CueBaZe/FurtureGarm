@@ -12,7 +12,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/timecapsule', [TimecapsuleController::class, 'createTimecapsule'])->middleware('auth')->name('timecapsuleCreate');
 
     Route::post('/timecapsuledel', [TimecapsuleController::class, 'deleteTimecapsule'])->middleware('auth')->name('timecapsuleDelete');
+
 });
+
 
 Route::get('/login', function () {
     return view('login');
