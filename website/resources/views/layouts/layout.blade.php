@@ -58,7 +58,7 @@
                     <form action="{{ route('timecapsuleCreate') }}" method="POST">
                         @csrf
                         <div class="container">
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center text-center">
                                 @if(session()->has('success'))
                                     <span><i class='bx bx-check-circle successcircle'></i> {{session()->get("success")}}</span>
                                 @endif
@@ -71,6 +71,12 @@
                                 @error('text')
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
+
+                                <div>
+                                    <label for="mediaInput" class="custom-file-upload" id="file-button-text">Upload Media</label>
+                                    <input type="file" name="media" id="mediaInput">
+                                    <h5 id="file-label">No file selected.</h5>
+                                </div>
 
                                 <p class="mt-4">Leave blank if the capsule is for yourself. <i class='bx bx-down-arrow-alt'></i></p>
                                 <input type="text" class="col-8" name="send" placeholder="Send to person (email)" {{ old('text') }}>
@@ -116,4 +122,5 @@
 <script src="{{ asset('js/openModal.js') }}"></script>
 <script src="{{ asset('js/datePicker.js') }}"></script>
 <script src="{{ asset('js/openSettings.js') }}"></script>
+<script src="{{ asset('js/showUploadedFile.js') }}"></script>
 </html>

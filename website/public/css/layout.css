@@ -73,6 +73,26 @@ textarea {
     resize: none;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    color: white;
+    background-color: #ff4d00;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    transition: 0.3s ease;
+}
+.custom-file-upload:hover {
+    background-color: #ff4000;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 .modal-body p {
     font-size: 15px;
     font-weight: bold;
