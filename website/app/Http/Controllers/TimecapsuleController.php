@@ -60,8 +60,15 @@ class TimecapsuleController extends Controller
 
     public function deleteTimecapsule(Request $request) {
         $id = $request->id;
+        $timecapsule = Timecapsule::find($id);
         $user_id = auth::id();
+
+        $mediaItems = $timecapsule ->getMedia('Media');
         
+        foreach($mediaItems as $media) {
+            $media->delete();
+        }
+         
         $deleted = Timecapsule::where('id', $id)
             ->where('user_id', $user_id)
             ->delete();
