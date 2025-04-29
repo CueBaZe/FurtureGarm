@@ -88,9 +88,9 @@ class TimecapsuleController extends Controller
 
         if ($media && isset($media->path)) {
             Storage::delete('public/' . $media->path);
-        }
 
-        DB::table('medias')->where('capsule_id', $id)->delete();
+            DB::table('medias')->where('capsule_id', $id)->delete();
+        }
 
         $deleted = Timecapsule::where('id', $id)
             ->where('user_id', $user_id)
