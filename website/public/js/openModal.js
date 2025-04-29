@@ -1,4 +1,5 @@
 function openModal(capsule) {
+    //changes the textcontent in the modal
     document.getElementById('modal-title-text').textContent = capsule.name;
     document.getElementById('capsuleText').value = capsule.text;
     document.getElementById('timeMade').textContent = capsule.created_at;
@@ -11,11 +12,11 @@ function openModal(capsule) {
         .then(response => response.json())
         .then(data => {
             if(data.path) {
-                let img = document.createElement('img');
-                img.src = data.path;
-                img.alt = 'Timecapsule Image';
-                img.className = 'img-fluid rounded';
-                imgContainer.appendChild(img);
+                let img = document.createElement('img'); //creates a new img element
+                img.src = data.path; //adds the src to the img
+                img.alt = 'Timecapsule Image'; //adds an alt to the img
+                img.className = 'img-fluid rounded'; //adds classname to img
+                imgContainer.appendChild(img); //puts the img into the imgContainer
             } else{
                 imgContainer.innerHTML = 'No media attached';
             }
