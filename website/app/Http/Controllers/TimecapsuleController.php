@@ -55,7 +55,7 @@ class TimecapsuleController extends Controller
 
                 if (in_array($file_extension, $allowed_extension)) {
                      //add picture to storage
-                    $path = $file->store('public/medias');
+                    $path = $file->store('medias', 'public'); // stored in storage/app/public/medias
                     $pathWithoutPublic = str_replace('public/', '', $path);
                     $url = Storage::url($pathWithoutPublic);
 
@@ -79,13 +79,25 @@ class TimecapsuleController extends Controller
 
     }
 
+    public function getMediaPath($id) {
+        $media = DB::Table('medias')->where('capsule_id', $id)->first();
+        
+        if ($media && isset($media->path)) {
+            return response()->json([
+                'path' => Storage::url($media->path)
+            ]);
+        }
+
+        return response()->json(['path' => null]);
+    }
+
     public function deleteTimecapsule(Request $request) {
         $id = $request->id;
         $timecapsule = Timecapsule::find($id);
         $user_id = auth::id();
 
         $media = DB::table('medias')->where('capsule_id', $id)->first();
-
+        //deletes the media from the database and the storage
         if ($media && isset($media->path)) {
             Storage::delete('public/' . $media->path);
 

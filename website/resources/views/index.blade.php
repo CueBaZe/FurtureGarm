@@ -1,3 +1,6 @@
+<script>
+    const mediaRoute = "{{ url('/get-media') }}";
+</script>
 @extends('layouts.layout')
 
 @section('title') Home Page @endsection
@@ -65,8 +68,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <textarea name="text" id="capsuleText" rows="5" readonly></textarea>
-                                <div class="Image" id="modal-image">
-
+                                <div class="imageContainer mt-4" id="modal-image">
+                                    
                                 </div>  
                                 <p class="mt-4">Was made: <span id="timeMade"></span></p>
                                 <p>Created by: <span id="madeBy"></span></p>

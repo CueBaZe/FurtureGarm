@@ -24,6 +24,8 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+Route::get('/get-media/{id}', [TimecapsuleController::class, 'getMediaPath'])->name('getMedia');
+
 Route::get('/logout', [Authcontroller::class, 'logout'])->name('logout');
 
 Route::post('/login', [Authcontroller::class, 'login'])->name('loginpost');
