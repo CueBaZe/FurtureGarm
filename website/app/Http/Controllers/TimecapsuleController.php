@@ -20,6 +20,7 @@ class TimecapsuleController extends Controller
             "text" => "required|max:300",
             "time" => "required|date|after:today",
             "send" => "email|nullable", //can be null
+            "media" => "nullable|file|mimes:jpg,jpeg,png,mp4,mov|max:20480"
         ]);
 
         $toWho = $request->send;
@@ -63,7 +64,7 @@ class TimecapsuleController extends Controller
                     DB::table('medias')->insert([ //Saves the media in the database
                         'capsule_id' => $capsule->id,
                         'name' => $fileName,
-                        'path' => $pathWithoutPublic
+                        'path' => $pathWithoutPublic,
                     ]);
                 }
             }

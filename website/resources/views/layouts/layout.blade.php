@@ -76,6 +76,7 @@
                                     <label for="mediaInput" class="custom-file-upload" id="file-button-text">Upload Media</label>
                                     <input type="file" name="media" id="mediaInput">
                                     <h5 id="file-label">No file selected.</h5>
+                                    <p id="error" class="text-danger"></p>
                                     @error('media')
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -126,4 +127,5 @@
 <script src="{{ asset('js/datePicker.js') }}"></script>
 <script src="{{ asset('js/openSettings.js') }}"></script>
 <script src="{{ asset('js/showUploadedFile.js') }}"></script>
+<script src="{{ asset('js/maxFileSize.js') }}"></script>
 </html>
