@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medias', function (Blueprint $table) {
             $table->id();
-            $table->int('capsule_id');
+            $table->integer('capsule_id');
             $table->string('name');
             $table->string('path');
         }); 
