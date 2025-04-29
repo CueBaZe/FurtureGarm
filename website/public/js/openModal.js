@@ -16,6 +16,9 @@ function openModal(capsule) {
                 img.src = data.path; //adds the src to the img
                 img.alt = 'Timecapsule Image'; //adds an alt to the img
                 img.className = 'img-fluid rounded'; //adds classname to img
+                img.addEventListener('click', function() {
+                    window.open(img.src, '_blank');
+                })
                 imgContainer.appendChild(img); //puts the img into the imgContainer
             } else{
                 imgContainer.innerHTML = 'No media attached';
@@ -27,3 +30,4 @@ function openModal(capsule) {
         })
 
 }
+

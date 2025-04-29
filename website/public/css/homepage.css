@@ -85,6 +85,13 @@ p {
     transform: scale(1.1);
 }
 
+img {
+    max-width: 300px;
+    max-height: 300px;
+    border: 1px #131313 solid;
+    cursor: pointer;
+}
+
 #delete {
     color: red;
     font-size: 15px;
