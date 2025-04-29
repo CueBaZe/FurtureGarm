@@ -15,37 +15,37 @@ class TimecapsuleController extends Controller
 {
 
     public function createTimecapsule(Request $request) {
-        $request->validate([
-            "title" => "required|max:15",
+        $request->validate([ //validates the title, text, time and send.
+            "title" => "required|max:15", 
             "text" => "required|max:300",
             "time" => "required|date|after:today",
-            "send" => "email|nullable",
+            "send" => "email|nullable", //can be null
         ]);
 
         $toWho = $request->send;
 
-        if (Auth::check()) {
-            $capsuleData = [
+        if (Auth::check()) { //checks if the user is logged in
+            $capsuleData = [ //get all the data into an array
                 'name' => $request->title,
                 'text' => $request->text,
                 'time' => $request->time,
                 'madeBy' => Auth::user()->name,
             ];
 
-            if ($toWho == null) {
+            if ($toWho == null) { //check if user chose to send it to another person
                 $capsuleData['user_id'] = Auth::id();
             } else {
                 $user_exists = DB::table('users')->where('email', $toWho)
-                    ->exists();
-                if($user_exists) {
-                    $capsuleData['user_id'] =  User::where('email', $toWho)->first()->id;
+                    ->exists(); 
+                if($user_exists) { //check if that user exists
+                    $capsuleData['user_id'] =  User::where('email', $toWho)->first()->id; //get the users id
                 }
 
             }
 
-            $capsule = Timecapsule::create($capsuleData);
+            $capsule = Timecapsule::create($capsuleData); //creates the timecapsule
 
-            if ($request->hasFile('media')) {
+            if ($request->hasFile('media')) { //checks if user added any media
                 $file = $request->file('media');
 
                 $fileName = $file->getClientOriginalName();
@@ -53,14 +53,14 @@ class TimecapsuleController extends Controller
                 $allowed_extension = ['jpg', 'jpeg', 'png', 'gif'];
                 $file_extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-                if (in_array($file_extension, $allowed_extension)) {
+                if (in_array($file_extension, $allowed_extension)) { //checks if the extension is allowed
                      //add picture to storage
                     $path = $file->store('medias', 'public'); // stored in storage/app/public/medias
                     $pathWithoutPublic = str_replace('public/', '', $path);
                     $url = Storage::url($pathWithoutPublic);
 
                     //add picture to database
-                    DB::table('medias')->insert([
+                    DB::table('medias')->insert([ //Saves the media in the database
                         'capsule_id' => $capsule->id,
                         'name' => $fileName,
                         'path' => $pathWithoutPublic
@@ -80,9 +80,9 @@ class TimecapsuleController extends Controller
     }
 
     public function getMediaPath($id) {
-        $media = DB::Table('medias')->where('capsule_id', $id)->first();
+        $media = DB::Table('medias')->where('capsule_id', $id)->first(); //gets the media where capsule_id = $id
         
-        if ($media && isset($media->path)) {
+        if ($media && isset($media->path)) { //if there is any sends the path with json
             return response()->json([
                 'path' => Storage::url($media->path)
             ]);
@@ -98,10 +98,10 @@ class TimecapsuleController extends Controller
 
         $media = DB::table('medias')->where('capsule_id', $id)->first();
         //deletes the media from the database and the storage
-        if ($media && isset($media->path)) {
+        if ($media && isset($media->path)) { //checks if theres any media in the capsule
             Storage::disk('public')->delete($media->path);
 
-            DB::table('medias')->where('capsule_id', $id)->delete();
+            DB::table('medias')->where('capsule_id', $id)->delete(); //deletes the capsule from the database
         }
 
         $deleted = Timecapsule::where('id', $id)
