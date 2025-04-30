@@ -20,7 +20,7 @@ class TimecapsuleController extends Controller
             "text" => "required|max:300",
             "time" => "required|date|after:today",
             "send" => "email|nullable", //can be null
-            "media" => "nullable|file|mimes:jpg,jpeg,png,mp4,mov|max:20480"
+            "media" => "nullable|file|mimes:jpg,jpeg,png,gif,mp4,ogg,webm|max:20480"
         ]);
 
         $toWho = $request->send;
@@ -51,7 +51,7 @@ class TimecapsuleController extends Controller
 
                 $fileName = $file->getClientOriginalName();
 
-                $allowed_extension = ['jpg', 'jpeg', 'png', 'gif'];
+                $allowed_extension = ['jpg', 'jpeg', 'png', 'gif', 'mp4', 'ogg', 'webm'];
                 $file_extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
                 if (in_array($file_extension, $allowed_extension)) { //checks if the extension is allowed
@@ -65,6 +65,7 @@ class TimecapsuleController extends Controller
                         'capsule_id' => $capsule->id,
                         'name' => $fileName,
                         'path' => $pathWithoutPublic,
+                        'extension' => $file_extension,
                     ]);
                 }
             }
@@ -81,6 +82,12 @@ class TimecapsuleController extends Controller
     }
 
     public function getMediaPath($id) {
+        $capsule = Timecapsule::where('id', $id)->where('user_id', auth()->id())->first();
+
+        if (!$capsule) {
+            return response()->json(['path' => null], 403); //forbidden
+        }
+
         $media = DB::Table('medias')->where('capsule_id', $id)->first(); //gets the media where capsule_id = $id
         
         if ($media && isset($media->path)) { //if there is any sends the path with json

@@ -8,8 +8,16 @@ function openModal(capsule) {
     let imgContainer = document.getElementById('modal-image');
     imgContainer.innerHTML = '';
 
+    let imgExtensions = ['png', 'jpg', 'jpeg', 'gif'];
+    let videoExtension = ['mp4', 'ogg', 'webm'];
+
     fetch(`${mediaRoute}/${capsule.id}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Unauthorized or media not found!');
+            }
+            return response.json();
+        })
         .then(data => {
             if(data.path) {
                 let img = document.createElement('img'); //creates a new img element
