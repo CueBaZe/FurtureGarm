@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('capsule_id');
             $table->string('name');
             $table->string('path');
+            $table->string('extension');
         }); 
 
     }
