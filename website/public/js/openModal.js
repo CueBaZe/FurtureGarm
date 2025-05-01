@@ -11,6 +11,12 @@ function openModal(capsule) {
     let imgExtensions = ['png', 'jpg', 'jpeg', 'gif'];
     let videoExtension = ['mp4', 'ogg', 'webm'];
 
+    let spinner = document.createElement('div'); //creates the spinner element
+    spinner.className = 'spinner-border text-primary'; //adss class
+    spinner.role = 'status';
+    spinner.innerHTML = '<span class="visually-hidden">Loading image...</span>'
+    imgContainer.appendChild(spinner);
+
     fetch(`${mediaRoute}/${capsule.id}`)
         .then(response => {
             if (!response.ok) {
@@ -19,15 +25,16 @@ function openModal(capsule) {
             return response.json();
         })
         .then(data => {
+            imgContainer.innerHTML = '';
             if(data.path) {
                 let img = document.createElement('img'); //creates a new img element
+                imgContainer.appendChild(img); //puts the img into the imgContainer
                 img.src = data.path; //adds the src to the img
                 img.alt = 'Timecapsule Image'; //adds an alt to the img
                 img.className = 'img-fluid rounded'; //adds classname to img
                 img.addEventListener('click', function() {
                     window.open(img.src, '_blank');
                 })
-                imgContainer.appendChild(img); //puts the img into the imgContainer
             } else{
                 imgContainer.innerHTML = 'No media attached';
             }
