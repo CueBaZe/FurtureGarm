@@ -60,7 +60,7 @@
                         <i class="bx bx-time logo"></i>
                         <span id="modal-title-text"></span>
                     </h5>
-                    <i class='bx bx-x-circle close' data-bs-dismiss="modal"></i>
+                    <i class='bx bx-x-circle close' data-bs-dismiss="modal" onclick="closeModal()"></i>
                 </div>
     
                 <div class="modal-body text-center">
@@ -68,7 +68,7 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <textarea name="text" id="capsuleText" rows="5" readonly></textarea>
-                                <div class="imageContainer mt-4" id="modal-image">
+                                <div class="mediaContainer mt-4" id="modal-image">
                                     
                                 </div>  
                                 <p class="mt-4">Was made: <span id="timeMade"></span></p>

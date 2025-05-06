@@ -92,6 +92,11 @@ img {
     cursor: pointer;
 }
 
+video {
+    max-width: 500px;
+    max-height: 300px;
+}
+
 #delete {
     color: red;
     font-size: 15px;

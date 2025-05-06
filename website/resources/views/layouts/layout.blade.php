@@ -74,7 +74,7 @@
 
                                 <div>
                                     <label for="mediaInput" class="custom-file-upload" id="file-button-text">Upload Media</label>
-                                    <input type="file" name="media" id="mediaInput">
+                                    <input type="file" name="media" id="mediaInput" accept="image/*, video/*">
                                     <h5 id="file-label">No file selected.</h5>
                                     <p id="error" class="text-danger"></p>
                                     @error('media')

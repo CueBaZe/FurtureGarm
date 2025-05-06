@@ -20,7 +20,7 @@ class TimecapsuleController extends Controller
             "text" => "required|max:300",
             "time" => "required|date|after:today",
             "send" => "email|nullable", //can be null
-            "media" => "nullable|file|mimes:jpg,jpeg,png,gif,mp4,ogg,webm|max:20480"
+            "media" => "nullable|file|mimes:jpg,jpeg,png,gif,mp4,ogg,webm|max:524288"
         ]);
 
         $toWho = $request->send;
@@ -92,7 +92,8 @@ class TimecapsuleController extends Controller
         
         if ($media && isset($media->path)) { //if there is any sends the path with json
             return response()->json([
-                'path' => Storage::url($media->path)
+                'path' => Storage::url($media->path),
+                'extension' => $media->extension,
             ]);
         }
 
