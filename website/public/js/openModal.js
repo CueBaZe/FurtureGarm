@@ -35,9 +35,6 @@ function openModal(capsule) {
                     img.src = data.path; //adds the src to the img
                     img.alt = 'Timecapsule Image'; //adds an alt to the img
                     img.className = 'img-fluid rounded'; //adds classname to img
-                    img.addEventListener('click', function() {
-                        window.open(img.src, '_blank');
-                    })
                 } else if (videoExtension.includes(data.extension)) {
                     let video = document.createElement('video');
                     mediaContainer.appendChild(video);
@@ -53,7 +50,7 @@ function openModal(capsule) {
         })
         .catch(error => {
             console.log('Error fetching media;', error);
-            mediaContainer.innerHTML = 'Error loading image';
+            mediaContainer.innerHTML = 'Error loading media';
         })
 
 }
