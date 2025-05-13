@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     // Set the minimum date to tomorrow
     const dateInput = document.getElementById('datePicker');
