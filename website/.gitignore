@@ -21,3 +21,14 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Ignore storage contents, but keep structure
+/storage/*
+!storage/app
+!storage/framework
+!storage/logs
+!storage/.gitignore
+
+# Ignore bootstrap/cache contents, but keep folder
+/bootstrap/cache/*
+!bootstrap/cache/.gitignore
