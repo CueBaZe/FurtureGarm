@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TimecapsuleController;
+use Illuminate\Support\Facades\Auth;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
@@ -13,6 +14,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/timecapsuledel', [TimecapsuleController::class, 'deleteTimecapsule'])->middleware('auth')->name('timecapsuleDelete');
 
+});
+
+Route::get('/session-check', function () {
+    return response()->json([
+        'auth' => Auth::check(),
+    ]);
 });
 
 

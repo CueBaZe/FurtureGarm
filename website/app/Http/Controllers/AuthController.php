@@ -6,18 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 
 class Authcontroller extends Controller
 {
     public function login(Request $request) {
         $request->validate([ //validates email and password
-            "email" => "required||email",
+            "email" => "required|email",
             "password" => "required",
         ]);
 
         $credentials = $request->only("email", "password");
+        $rem = 1;
+        $email = $request->email;
 
         if(Auth::attempt($credentials)) { //checks if the credentials match any in the database
+            if($request->has("rem")) {
+                setcookie('cookie_rem', $rem, time() + 60*60*24*30, '/');
+                setcookie('cookie_email', $email, time() + 60*60*24*30, '/');
+            } else {
+                if (isset($_COOKIE['cookie_email'])) {
+                    setcookie('cookie_email', $email, time() - 60*60*24*30, '/');
+                }
+
+                if (isset($_COOKIE['cookie_rem'])) {
+                    setcookie('cookie_rem', $rem, time() - 60*60*24*30, '/');
+                }
+            }
             return redirect()->intended('/');
         }
 
@@ -25,6 +40,7 @@ class Authcontroller extends Controller
     }
 
     public function logout() {
+
         Auth::logout(); //logouts the user
         return redirect('login');
     }

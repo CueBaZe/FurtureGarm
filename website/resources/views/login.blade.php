@@ -33,7 +33,7 @@
                     <div class="inputs">
                         <div class="emailbox">
                             <i class='bx bx-user' ></i>
-                            <input type="text" class="email col-8" name="email" placeholder="Email">
+                            <input type="text" class="email col-8" name="email" placeholder="Email" @if(isset($_COOKIE['cookie_email'])) value="{{ $_COOKIE['cookie_email'] }}" @endif>
                             <br>
                             @if($errors->has('email')) 
                                 <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('email')}}</span>
@@ -53,7 +53,7 @@
                     <input type="submit" name="login" class="loginbtn col-5" value="Login">
 
                     <div class="rememberMe">
-                        <input type="checkbox" name="rem" class="rememberbox">
+                        <input type="checkbox" id="rem" name="rem" class="rememberbox">
                         <label for="rem">Remember me for 30 days</label>
                     </div>
 
