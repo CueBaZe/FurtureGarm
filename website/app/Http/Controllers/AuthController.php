@@ -17,22 +17,9 @@ class Authcontroller extends Controller
         ]);
 
         $credentials = $request->only("email", "password");
-        $rem = 1;
-        $email = $request->email;
+        $remember = $request->has('rem');
 
-        if(Auth::attempt($credentials)) { //checks if the credentials match any in the database
-            if($request->has("rem")) {
-                setcookie('cookie_rem', $rem, time() + 60*60*24*30, '/');
-                setcookie('cookie_email', $email, time() + 60*60*24*30, '/');
-            } else {
-                if (isset($_COOKIE['cookie_email'])) {
-                    setcookie('cookie_email', $email, time() - 60*60*24*30, '/');
-                }
-
-                if (isset($_COOKIE['cookie_rem'])) {
-                    setcookie('cookie_rem', $rem, time() - 60*60*24*30, '/');
-                }
-            }
+        if(Auth::attempt($credentials, $remember)) { //checks if the credentials match any in the database
             return redirect()->intended('/');
         }
 

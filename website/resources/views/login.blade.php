@@ -33,7 +33,7 @@
                     <div class="inputs">
                         <div class="emailbox">
                             <i class='bx bx-user' ></i>
-                            <input type="text" class="email col-8" name="email" placeholder="Email" @if(isset($_COOKIE['cookie_email'])) value="{{ $_COOKIE['cookie_email'] }}" @endif>
+                            <input type="text" class="email col-8" name="email" placeholder="Email">
                             <br>
                             @if($errors->has('email')) 
                                 <span class="error col-12"><i class='bx bx-error-circle errorCircle'></i> {{$errors->first('email')}}</span>
