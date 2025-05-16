@@ -14,9 +14,10 @@
 .sidenav .link {
     color: #f9f9f9;
     text-decoration: none;
-    display: block;
+    display: flex;
     margin-top: 20px;
     transition: 0.5s ease;
+    white-space: nowrap;
 }
 .sidenav .link:hover {
     background-color: #ff4d00;
@@ -25,6 +26,8 @@
 .link p {
     font-size: 30px;
     margin-left: 10px;
+    margin-bottom: 0;
+    white-space: nowrap;
 }
 
 
