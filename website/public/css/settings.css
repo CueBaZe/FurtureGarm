@@ -13,19 +13,20 @@
 
 .sidenav .link {
     color: #f9f9f9;
-    display: block;
     text-decoration: none;
-    font-size: 35px;
-    margin-left: 15%;
-    margin-top: 50px;
-    text-decoration-color: #ff4d00;
-    transition: 0.3s ease;
+    display: block;
+    margin-top: 20px;
+    transition: 0.5s ease;
 }
 .sidenav .link:hover {
-    transform: scale(1.125);
-    text-decoration: underline;
-    text-decoration-color: #ff4d00;
+    background-color: #ff4d00;
 }
+
+.link p {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
 
 .sidenav .closebtn {
     position: absolute;
