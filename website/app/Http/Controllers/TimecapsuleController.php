@@ -40,6 +40,8 @@ class TimecapsuleController extends Controller
                     ->exists(); 
                 if($user_exists) { //check if that user exists
                     $capsuleData['user_id'] =  User::where('email', $toWho)->first()->id; //get the users id
+                } else {
+                    return redirect()->back()->withErrors(["send" => "We dont have this email in our database!"]);
                 }
 
             }

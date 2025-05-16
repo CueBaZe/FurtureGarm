@@ -25,7 +25,7 @@
                     <a href="javascript:void(0)" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
                 </div>
                 <div class="col-4">
-                    <a href="#" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
+                    <a href="{{ route('home') }}" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
                 </div>
                 <div class="col-4">
                     <a href="#" class="link" data-bs-toggle="modal" data-bs-toggle="tooltip" title="Create Timecapsule" data-bs-target="#createTimeCapsule"><i class='bx bxs-hourglass'></i></a>
@@ -37,7 +37,7 @@
     <!--Side settings-->
     <div id="settings" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
-        <a href="#" class="link" data-bs-toggle="tooltip" title="Change account infomation"><p><i class='bx  bx-user'></i> Account</p></a>
+        <a href="{{ route('account') }}" class="link" data-bs-toggle="tooltip" title="Change account infomation"><p><i class='bx  bx-user'></i> Account</p></a>
         <a href="#" class="link" data-bs-toggle="tooltip" title="Change timecapsule settings"><p><i class='bx bxs-hourglass'></i> Timecapsule</p></a>
         <a href="{{ route('logout') }}" class="logoutbtn" data-bs-toggle="tooltip" title="Logout"><i class='bx bx-log-out' ></i></a>
     </div>
