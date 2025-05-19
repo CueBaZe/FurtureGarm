@@ -107,7 +107,8 @@
     </div>
 
 
-@if ($errors->any() || session()->has('success'))
+@if ($errors->has('title') || $errors->has('text') || $errors->has('media') ||
+    $errors->has('send') || $errors->has('time') || session()->has('success'))
 <script>
     window.showCreateModal = true;
 </script>

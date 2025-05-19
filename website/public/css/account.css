@@ -1,0 +1,50 @@
+.card-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.errorCircle {
+    color: red;
+}
+
+.successcircle {
+    color: green;
+}
+
+#showpass {
+    cursor: pointer;
+}
+
+#save {
+    background-color: #ff4d00;
+    color: #f9f9f9;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px #131313 solid;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+}
+#save:hover {
+    transform: scale(1.1);
+    background-color: #ff4000;
+}
+
+.input {
+    color: #ff4000;
+    background-color: transparent;
+    border: 1px #131313 solid;
+    border-radius: 8px;
+}
