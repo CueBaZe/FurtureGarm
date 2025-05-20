@@ -19,7 +19,7 @@
                                 <input type="text" name="id" value="{{ $timecapsule->id }}" hidden>
                                 <button class="btn" type="submit"><i class='bx bx-trash' id="delete"></i></button>
                             </form>
-                        </div>
+                        </div class="p">
                         <h3>{{ $timecapsule->name }}</h3>
                         @if($timecapsule->time <= $currentTime)
                             <p>Opened on {{ $timecapsule->time }}</p>
@@ -45,7 +45,7 @@
             <div class="box text-center">
                 <i class='bx bx-error-circle error'></i>
                 <h3>HEY!!!</h3>
-                <p>You dont have an timecapsule!</p>
+                <p class="p">You dont have an timecapsule!</p>
                 <button class="btn createbtn" data-bs-toggle="modal" data-bs-target="#createTimeCapsule">Create one</button>
             </div>
         </div>
