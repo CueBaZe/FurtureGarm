@@ -21,6 +21,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/accountinfochange', [AccController::class, 'changeAccInfo'])->middleware('auth')->name('changeAccInfo');
 
+    Route::get('/accountdelete', [AccController::class, 'DeleteAcc'])->middleware('auth')->name('deleteAcc');
+
 });
 
 Route::get('/login', function () {

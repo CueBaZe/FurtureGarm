@@ -38,7 +38,7 @@
     <div id="settings" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
         <a href="{{ route('account') }}" class="link" data-bs-toggle="tooltip" title="Change account infomation"><p><i class='bx  bx-user'></i> Account</p></a>
-        <a href="#" class="link" data-bs-toggle="tooltip" title="Change timecapsule settings"><p><i class='bx bxs-hourglass'></i> Timecapsule</p></a>
+        <a href="#" class="link" data-bs-toggle="tooltip" title="Change design settings"><p><i class='bx  bx-pencil'></i>  Design</p></a>
         <a href="{{ route('logout') }}" class="logoutbtn" data-bs-toggle="tooltip" title="Logout"><i class='bx bx-log-out' ></i></a>
     </div>
 

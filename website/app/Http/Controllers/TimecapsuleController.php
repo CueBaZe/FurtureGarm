@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
+use App\Services\TimecapsuleService;
 
 
 class TimecapsuleController extends Controller
@@ -104,20 +105,9 @@ class TimecapsuleController extends Controller
 
     public function deleteTimecapsule(Request $request) {
         $id = $request->id;
-        $timecapsule = Timecapsule::find($id);
-        $user_id = auth::id();
+        $user_id = auth()->id();
 
-        $media = DB::table('medias')->where('capsule_id', $id)->first();
-        //deletes the media from the database and the storage
-        if ($media && isset($media->path)) { //checks if theres any media in the capsule
-            Storage::disk('public')->delete($media->path);
-
-            DB::table('medias')->where('capsule_id', $id)->delete(); //deletes the capsule from the database
-        }
-
-        $deleted = Timecapsule::where('id', $id)
-            ->where('user_id', $user_id)
-            ->delete();
+        $deleted = TimecapsuleService::delete($id, $user_id);
 
         if ($deleted) {
             return redirect()->route('home')->with('successdel', 'Timecapsule was deleted successfully!');

@@ -42,8 +42,29 @@
                         <input type="submit" name="save" class="col-4" id="save" value="Save">
                     </div>
                 </form>
+                <div class="deleteButton">
+                    <a href="#" id="deleteAccBtn" data-bs-toggle="modal" data-bs-target="#sureModal">Delete Account</a>
+                </div>
             </div>
         </div>  
+    </div>
+</div>
+
+<div id="sureModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header rounded-top">
+                <h5 class="modal-title mx-auto">
+                    Are you sure?
+                </h5>
+            </div>
+            <div class="modal-body text-center">
+                <p>Are you sure you want to delete your account?</p>
+                <p>This action cannot be undone!!</p>
+                <a id="deleteAcc" class="button" style="background-color: red;" href="{{ route('deleteAcc') }}">Delete Account</a>
+                <a id="cancelAcc" href="#" class="button" style="background-color: gray;" data-bs-dismiss="modal">Cancel</a>
+            </div>
+        </div>
     </div>
 </div>
 <script src="{{ asset('js/showpass.js') }}"></script>

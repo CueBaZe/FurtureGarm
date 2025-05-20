@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Timecapsule;
 use Illuminate\Support\Facades\DB;
+use App\Services\TimecapsuleService;
 
 class AccController extends Controller
 {
@@ -19,51 +21,66 @@ class AccController extends Controller
 
         $user = Auth::user();
         $errors = [];
+        if($request->filled('name') || $request->filled('email') || $request->filled('password')) {
 
-        if($request->filled('name')) {
-            if($request->name != $user->name) {
-                //set the new username
-                $user->name = $request->name;
-            }
-            else {
-                $errors['name'] = 'The name is the same as the current one.';
-            }
-        }
-
-        if($request->filled('email')) {
-            if($request->email != $user->email) {
-                $emailExists = User::where('email', $request->email)->exists();
-                if (!$emailExists) {
-                    //set the new email
-                    $user->email = $request->email;
-                } else {
-                    $errors['email'] = 'This email already exists in our system!';
+            if($request->filled('name')) {
+                if($request->name != $user->name) {
+                    //set the new username
+                    $user->name = $request->name;
                 }
-            } else {
-                $errors['email'] = 'The email is the same as the current one';
+                else {
+                    $errors['name'] = 'The name is the same as the current one.';
+                }
             }
-        }
 
-        if($request->filled('password')) {
-            $password = Hash::make($request->password);
-            if($password != $user->password) {
-                //set the new password
-                $user->password = $password;
-            } else {
-                $errors['password'] = 'The password is the same as the current one';
+            if($request->filled('email')) {
+                if($request->email != $user->email) {
+                    $emailExists = User::where('email', $request->email)->exists();
+                    if (!$emailExists) {
+                        //set the new email
+                        $user->email = $request->email;
+                    } else {
+                        $errors['email'] = 'This email already exists in our system!';
+                    }
+                } else {
+                    $errors['email'] = 'The email is the same as the current one';
+                }
             }
-        }
 
-        if (empty($errors)) {
-            //Saves the new user data
-            $user->save();
-            return redirect()->back()->with('successAcc', 'Account info updated.');
+            if($request->filled('password')) {
+                $password = Hash::make($request->password);
+                if($password != $user->password) {
+                    //set the new password
+                    $user->password = $password;
+                } else {
+                    $errors['password'] = 'The password is the same as the current one';
+                }
+            }
+
+            if (empty($errors)) {
+                //Saves the new user data
+                $user->save();
+                return redirect()->back()->with('successAcc', 'Account info updated.');
+            } else {
+                return redirect()->back()->withErrors($errors)->withInput();;
+            }
         } else {
-            return redirect()->back()->withErrors($errors)->withInput();;
+            return redirect()->back();
         }
     }
 
     public function DeleteAcc() {
+        $user = Auth::user();
+
+        //delete timecapsules
+        $timecapsules = Timecapsule::where('user_id', $user->id)->get();
+        foreach ($timecapsules as $timecapsule) {
+            TimecapsuleService::delete($timecapsule->id, $user->id);
+        }
+
         //delete account
+        $user->delete();
+        return view('login');
+        
     }
 }

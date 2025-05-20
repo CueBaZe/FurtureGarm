@@ -48,3 +48,37 @@
     border: 1px #131313 solid;
     border-radius: 8px;
 }
+
+#deleteAccBtn {
+    background-color: red;
+    color: #f9f9f9;
+    text-decoration: none;
+    padding: 5px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px #131313 solid;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+}
+#deleteAccBtn:hover {
+    transform: scale(1.1);
+    background-color: #e00909;
+}
+
+.button {
+    color: white;
+    font-size: 16x;
+    display: inline-block;
+    border: none;
+    border: 1px #131313 solid;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 10px;
+    transition: 0.3s ease;
+}
+.button:hover {
+    transform: scale(1.1);
+}
