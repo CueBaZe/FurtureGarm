@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Timecapsule;
 use Illuminate\Support\Facades\DB;
-use App\Services\TimecapsuleService;
+use App\Services\TimeCapsuleService;
 
 class AccController extends Controller
 {
@@ -75,7 +75,7 @@ class AccController extends Controller
         //delete timecapsules
         $timecapsules = Timecapsule::where('user_id', $user->id)->get();
         foreach ($timecapsules as $timecapsule) {
-            TimecapsuleService::delete($timecapsule->id, $user->id);
+            TimeCapsuleService::delete($timecapsule->id, $user->id);
         }
 
         //delete account

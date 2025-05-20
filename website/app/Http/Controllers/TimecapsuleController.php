@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\Models\User;
-use App\Services\TimecapsuleService;
+use App\Services\TimeCapsuleService;
 
 
 class TimecapsuleController extends Controller
@@ -107,7 +107,7 @@ class TimecapsuleController extends Controller
         $id = $request->id;
         $user_id = auth()->id();
 
-        $deleted = TimecapsuleService::delete($id, $user_id);
+        $deleted = TimeCapsuleService::delete($id, $user_id);
 
         if ($deleted) {
             return redirect()->route('home')->with('successdel', 'Timecapsule was deleted successfully!');

@@ -19,12 +19,12 @@
                                 <input type="text" name="id" value="{{ $timecapsule->id }}" hidden>
                                 <button class="btn" type="submit"><i class='bx bx-trash' id="delete"></i></button>
                             </form>
-                        </div class="p">
+                        </div>
                         <h3>{{ $timecapsule->name }}</h3>
                         @if($timecapsule->time <= $currentTime)
-                            <p>Opened on {{ $timecapsule->time }}</p>
+                            <p class="p">Opened on {{ $timecapsule->time }}</p>
                         @else 
-                            <p>Opens at {{ $timecapsule->time }}</p>
+                            <p class="p">Opens at {{ $timecapsule->time }}</p>
                         @endif
                         <div class="container mb-3">
                             <div class="row justify-content-center">
