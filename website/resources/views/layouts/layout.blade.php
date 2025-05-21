@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="crsf-token" content="{{ csrf_token() }}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sidenav.css') }}" rel="stylesheet">
     <title>@yield('title')</title>
 </head>
 <body>
@@ -22,7 +23,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-4">
-                    <a href="javascript:void(0)" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Settings"><i class='bx bx-cog'></i></a>
+                    <a href="javascript:void(0)" onclick="openSettings()" class="link" data-bs-toggle="tooltip" title="Menu"><i class='bx  bx-menu'></i> </a>
                 </div>
                 <div class="col-4">
                     <a href="{{ route('home') }}" class="link" data-bs-toggle="tooltip" title="Home"><i class='bx bx-home'></i></a>
@@ -38,7 +39,7 @@
     <div id="settings" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSettings()"><i class='bx bx-chevrons-left'></i></a>
         <a href="{{ route('account') }}" class="link" data-bs-toggle="tooltip" title="Change account infomation"><p><i class='bx  bx-user'></i> Account</p></a>
-        <a href="#" class="link" data-bs-toggle="tooltip" title="Change design settings"><p><i class='bx  bx-pencil'></i>  Design</p></a>
+        <a href="{{ route('settings') }}" class="link" data-bs-toggle="tooltip" title="Change design settings"><p><i class='bx  bx-cog'></i> </i>  Settings</p></a>
         <a href="{{ route('logout') }}" class="logoutbtn" data-bs-toggle="tooltip" title="Logout"><i class='bx bx-log-out' ></i></a>
     </div>
 

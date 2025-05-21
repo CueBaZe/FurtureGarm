@@ -15,6 +15,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/timecapsuledel', [TimecapsuleController::class, 'deleteTimecapsule'])->middleware('auth')->name('timecapsuleDelete');
 
+    Route::delete('/timecapsule/{id}', [TimecapsuleController::class, 'deleteTimecapsule'])->name('timecapsule.delete');
+
     Route::get('/accountifo', function() {
         return view('account');
     })->name('account');
@@ -22,6 +24,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/accountinfochange', [AccController::class, 'changeAccInfo'])->middleware('auth')->name('changeAccInfo');
 
     Route::get('/accountdelete', [AccController::class, 'DeleteAcc'])->middleware('auth')->name('deleteAcc');
+
+    Route::get('/settings', function() {
+        return view('settings');
+    })->name('settings');
 
 });
 

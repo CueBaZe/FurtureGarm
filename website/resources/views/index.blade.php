@@ -12,13 +12,10 @@
             <div class="row">
                 <h3 class="headtitle">Your <i class='bx bx-time logo'></i> Capsules:</h3>
                 @foreach ($timeCapsules as $timecapsule)
-                    <div class="capsuleCard text-center col-10 col-md-4 col-xl-3">
+                    <div id="capsule-{{ $timecapsule->id }}" class="capsuleCard text-center col-10 col-md-4 col-xl-3">
                         <div class="text-end">
-                            <form action="{{ route('timecapsuleDelete') }}" method="POST">
-                                @csrf
-                                <input type="text" name="id" value="{{ $timecapsule->id }}" hidden>
-                                <button class="btn" type="submit"><i class='bx bx-trash' id="delete"></i></button>
-                            </form>
+                            <input type="text" name="id" value="{{ $timecapsule->id }}" hidden>
+                            <button class="delete-btn btn" type="submit" data-id="{{ $timecapsule->id }}"><i class='bx bx-trash' id="delete"></i></button>
                         </div>
                         <h3>{{ $timecapsule->name }}</h3>
                         @if($timecapsule->time <= $currentTime)
@@ -82,6 +79,6 @@
             </div>
         </div>
     </div>
-
+<script src="{{ asset('js/deleteTimecapsule.js') }}"></script>
 @endsection
 

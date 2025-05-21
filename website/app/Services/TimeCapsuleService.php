@@ -28,13 +28,15 @@ class TimeCapsuleService {
 
     public static function delete($id, $userId)
     {
-        $media = DB::table('medias')->where('capsule_id', $id)->first();
+        if (Timecapsule::where('id', $id)->where('user_id', $userId)) {
+            $media = DB::table('medias')->where('capsule_id', $id)->first();
 
-        if ($media && isset($media->path)) {
-            Storage::disk('public')->delete($media->path);
-            DB::table('medias')->where('capsule_id', $id)->delete();
+            if ($media && isset($media->path)) {
+                Storage::disk('public')->delete($media->path);
+                DB::table('medias')->where('capsule_id', $id)->delete();
+            }
+
+            return Timecapsule::where('id', $id)->where('user_id', $userId)->delete();
         }
-
-        return Timecapsule::where('id', $id)->where('user_id', $userId)->delete();
     }
 }

@@ -103,16 +103,15 @@ class TimecapsuleController extends Controller
         return response()->json(['path' => null]);
     }
 
-    public function deleteTimecapsule(Request $request) {
-        $id = $request->id;
+    public function deleteTimecapsule(Request $request, $id) {
         $user_id = auth()->id();
 
         $deleted = TimeCapsuleService::delete($id, $user_id);
 
         if ($deleted) {
-            return redirect()->route('home')->with('successdel', 'Timecapsule was deleted successfully!');
+            return response()->json(['success' => true, 'message' => 'Timecapsule was deleted successfully!']);
         } else {
-            return redirect()->route('home')->with('error', 'Timecapsule not found or unauthorized.');
+            return response()->json(['success' => false, 'message' => 'Timecapsule not found or unauthorized.'], 403);
         }
     }
 }
