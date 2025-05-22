@@ -1,59 +1,109 @@
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #151515;
-    overflow-x: hidden;
-    padding-top: 60px;
-    transition: 0.3s;
+.cardContainer {
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
 }
 
-.sidenav .link {
-    color: #f9f9f9;
-    text-decoration: none;
-    display: flex;
-    margin-top: 20px;
-    transition: 0.5s ease;
-    white-space: nowrap;
+.cardTitleContainer {
+    background-color: rgb(21, 20, 20);
+    padding: 10px;
 }
-.sidenav .link:hover {
+
+.cardTitle {
+    color: #f9f9f9;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.cardBodyContainer {
+    background-color: #f9f9f9;
+    overflow: auto;
+    height: 600px;
+}
+
+.cardFooterContainer {
+    background-color: rgb(21, 20, 20);
+    padding: 10px;
+}
+
+.cancelSettingsBtn {
+    background-color: gray;
+    border: 1px black solid;
+    border-radius: 8px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.cancelSettingsBtn:hover {
+    transform: scale(1.1);
+}
+
+.saveSettingsBtn {
+    background-color: #ff4d00;
+    border: 1px black solid;
+    border-radius: 8px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.saveSettingsBtn:hover {
+    transform: scale(1.1);
+    background-color: #ff4000;
+}
+
+.settingsTitle {
+    margin-top: 10px;
+    color: #ff4d00;
+    font-size: 30px;
+    font-weight: bold;
+    border-bottom: 2px rgba(161, 156, 156, 0.452) solid;
+}
+.settingOption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Adjust spacing between text and switch */
+}
+
+.settingOption p {
+    font-size: 20px;
+    margin-right: 30px;
+    font-weight: 600;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.switch:after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 22px;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s;
+}
+
+input[type='checkbox']:checked + .switch:after {
+    transform: translateX(22px);
+}
+
+input[type='checkbox']:checked + .switch {
     background-color: #ff4d00;
 }
 
-.link p {
-    font-size: 30px;
-    margin-left: 10px;
-    margin-bottom: 0;
-    white-space: nowrap;
-}
-
-
-.sidenav .closebtn {
+.offscreen {
     position: absolute;
-    display: inline-block;
-    top: 0;
-    right: 25px;
-    color: #f9f9f9;
-    font-size: 35px;
-    transition: 0.5s ease;
-}
-.sidenav .closebtn:hover {
-    transform: scale(1.3);
-}
-
-.sidenav .logoutbtn {
-    position: absolute;
-    display: inline-block;
-    bottom: 10px;
-    right: 25px;
-    color: white;
-    font-size: 35px;
-    transition: 0.5s ease;
-}
-.sidenav .logoutbtn:hover {
-    transform: scale(1.3);
-    color: #ff4d00;
+    left: -99999px;
 }

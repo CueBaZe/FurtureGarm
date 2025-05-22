@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cookie;
 
 class Authcontroller extends Controller
@@ -42,11 +43,13 @@ class Authcontroller extends Controller
             "terms.accepted" => "You must accept the terms and conditions to proceed."
         ]);
 
-        User::create([ //creates the user
+        $user = User::create([ //creates the user
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        DB::insert('insert into settings (user_id) values (?)', [$user->id]);
 
         return redirect('/login')->with('success', 'User was successfully created');
     }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TimecapsuleController;
 use App\Http\Controllers\AccController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Auth;
 
 Route::middleware(['auth'])->group(function () {
@@ -28,6 +29,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/settings', function() {
         return view('settings');
     })->name('settings');
+
+    Route::post('/settingssave', [SettingController::class, 'saveSettings'])->name('saveSetting');
 
 });
 

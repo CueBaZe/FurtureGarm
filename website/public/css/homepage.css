@@ -43,8 +43,6 @@ h3 {
 }
 
 .capsuleCard {
-    background-color: #f9f9f9;
-    color: #515151;
     margin-top: 30px;
     margin: 30px 20px;
     border: 1px #131313 solid;
@@ -59,7 +57,6 @@ h3 {
 
 .capsuleCard .openbtn {
     border: 1px #131313 solid;
-    color: #f9f9f9;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
@@ -73,15 +70,10 @@ h3 {
 }
 
 .capsuleCard #closed {
-    background-color: #515151;
     cursor: not-allowed;
 }
 
-.capsuleCard #opened {
-    background-color: #ff4d00;
-}
 .capsuleCard #opened:hover {
-    background-color: #ff4000;
     transform: scale(1.1);
 }
 
@@ -97,7 +89,6 @@ video {
 }
 
 #delete {
-    color: red;
     font-size: 15px;
     border: none;
     transition: 0.3s ease;
