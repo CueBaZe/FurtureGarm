@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/settingssave', [SettingController::class, 'saveSettings'])->name('saveSetting');
 
+    Route::get('/settingsreset', [SettingController::class, 'resetSettings'])->name('resetSetting');
+
 });
 
 Route::get('/login', function () {

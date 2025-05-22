@@ -31,6 +31,7 @@
     border: 1px black solid;
     border-radius: 8px;
     color: white;
+    padding: 5px;
     font-size: 20px;
     font-weight: bold;
     transition: 0.3s ease;
@@ -44,6 +45,7 @@
     border: 1px black solid;
     border-radius: 8px;
     color: white;
+    padding: 5px;
     font-size: 20px;
     font-weight: bold;
     transition: 0.3s ease;
@@ -52,6 +54,22 @@
     transform: scale(1.1);
     background-color: #ff4000;
 }
+
+.resetToDefualt {
+    background-color: #db0808;
+    border: 1px black solid;
+    border-radius: 8px;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+.resetToDefualt:hover {
+    transform: scale(1.1);
+    background-color: #c70b0b;
+}
+
 
 .settingsTitle {
     margin-top: 10px;

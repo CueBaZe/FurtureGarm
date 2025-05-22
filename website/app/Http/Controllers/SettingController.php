@@ -42,4 +42,26 @@ class SettingController extends Controller
         return redirect()->back();
 
     }
+
+    public function resetSettings() {
+        $user = Auth::user();
+
+        $setting = Setting::where('user_id', $user->id)->first();
+
+        $setting->update([
+            'showOpen' => true,
+            'showCountdown' => false,
+            'showMadeBy' => false,
+            'background' => '#f9f9f9',
+            'titleColor' => '#000000',
+            'textColor' => '#515151',
+            'buttonColor' => '#ff4d00',
+            'buttonText' => '#f9f9f9',
+            'buttonclColor' => '#515151',
+            'buttonclText' => '#f9f9f9',
+            'deleteColor' => '#FF0000',
+        ]);
+
+        return redirect()->back();
+    }
 }

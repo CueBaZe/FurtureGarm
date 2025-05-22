@@ -85,7 +85,8 @@
                     </div>
                 </div>
                 <div class="cardFooterContainer d-flex justify-content-between">
-                    <button class="cancelSettingsBtn">Cancel</button>
+                    <a href="{{ route('settings') }}" class="cancelSettingsBtn" style="text-decoration: none;">Cancel</a>
+                    <a href="{{ route('resetSetting') }}" class="resetToDefualt" style="text-decoration: none;">Reset settings</a>
                     <button type="submit" class="saveSettingsBtn">Save</button>
                 </div>
             </form>

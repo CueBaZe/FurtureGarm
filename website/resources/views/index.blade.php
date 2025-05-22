@@ -36,7 +36,7 @@
                         <div class="container mb-3">
                             <div class="row justify-content-center">
                                 @if($timecapsule->time <= $currentTime)
-                                <button onclick='openModal(@json($timecapsule))' data-bs-toggle="modal" data-bs-target="#seeTimecapsule" id="opened" class="openbtn col-7" name="open" style="background-color: {{ $setting->buttonColor }}; color: {{ $setting->buttonTextColor }}">Open</button>
+                                <button onclick='openModal(@json($timecapsule))' data-bs-toggle="modal" data-bs-target="#seeTimecapsule" id="opened" class="openbtn col-7" name="open" style="background-color: {{ $setting->buttonColor }}; color: {{ $setting->buttonText }}">Open</button>
                                 @else
                                 <button id="closed" class="openbtn col-7" name="open" style="background-color: {{ $setting->buttonclColor }}; color: {{ $setting->buttonclText }};">Open</button>
                                 @endif
